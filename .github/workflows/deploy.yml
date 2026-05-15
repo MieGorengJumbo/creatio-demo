@@ -1,0 +1,23 @@
+name: Creatio Deployment Demo
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target Environment'
+        required: true
+        default: 'UAT'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Start Deployment
+        run: |
+          echo "Deploying to ${{ github.event.inputs.environment }}"
+          sleep 10
+
+      - name: Deployment Success
+        run: |
+          echo "Deployment completed successfully"
